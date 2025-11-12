@@ -614,7 +614,9 @@ footer .line-footer p a {
    }
 
    section.projeto .flex {
+      justify-content: center;
       gap: 60px;
+      flex-wrap: wrap;
    }
    
    footer .flex {
@@ -631,3 +633,4 @@ footer .line-footer p a {
 html {
   scroll-behavior: smooth;
 }
+
