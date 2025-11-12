@@ -9,7 +9,7 @@
 
 body {
    background-color: black;
-   height: 100vh;
+   /* height: 100vh; */
 
 }
 
@@ -633,4 +633,5 @@ footer .line-footer p a {
 html {
   scroll-behavior: smooth;
 }
+
 
