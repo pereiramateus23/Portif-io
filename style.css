@@ -116,7 +116,7 @@ section.especialidades .flex {
 
 .especialidades-box:hover {
    transform: scale(1.05);
-    box-shadow: 0 0 25px #ffffff80; /* branco translúcido */
+   box-shadow: 0 0 25px rgba(0, 255, 8, 0.6); /* verde brilhante translúcido */
 }
 
 .especialidades-box i {
@@ -634,6 +634,7 @@ footer .line-footer p a {
 html {
   scroll-behavior: smooth;
 }
+
 
 
 
