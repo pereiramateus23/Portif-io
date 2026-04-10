@@ -196,8 +196,8 @@
                 <script>
                     document.getElementById("formContato").addEventListener("submit", async (e) => {
                         e.preventDefault();
-
-                        const dados = Object.fromEntries(new FormData(e.target));
+                            // Coleta os dados do formulário
+                        const dados = Object.fromEntries(new FormData(e.target)); 
                         const resposta = await fetch("https://portifolio-backend-atpa.onrender.com/api/contato", {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
@@ -232,7 +232,7 @@
                                     class="bi bi-instagram"></i></button></a>
                         <a href=" mailto: mtspereira23@gmail.com"> <button><i
                                     class="bi bi-envelope-at"></i></button></a>
-                        <a href="https://www.linkedin.com/in/mateus-pereira-da-rosa-88748722b/"> <button><i
+                        <a href="https://www.linkedin.com/in/mtspereira23/"> <button><i
                                     class="bi bi-linkedin"></i></button></a>
                     </div>
                 </div>
