@@ -21,6 +21,6 @@ app.use(bodyParser.json()); // Parse application/json
 app.use("/api/contato", contatoRoutes); 
 
 // Inicializa o servidor
-app.listen(PORT, () => {
+app.listen(PORT, () => { 
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
