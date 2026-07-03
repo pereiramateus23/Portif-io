@@ -1,5 +1,4 @@
 // Controla a abertura/fechamento do menu mobile
-// (a lógica visual já existia no CSS, mas faltava este script para acioná-la)
 document.addEventListener("DOMContentLoaded", () => {
   const btnAbrir = document.getElementById("abrir-menu");
   const btnFechar = document.getElementById("fechar-menu");
@@ -8,8 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function abrirMenu() {
     menuMobile.classList.add("abrir-menu");
-    overlay.classList.add("mostrar");
-    document.body.style.overflow = "hidden";
+    overlay.classList.add("mostrar"); 
+    document.body.style.overflow = "hidden"; 
   }
 
   function fecharMenu() {
