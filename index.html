@@ -83,7 +83,7 @@
                     </div><!--txt-topo-site-->
 
                     <div class="img-topo-site">
-                        <img src="imagem/Copia1.2.jpg" alt="Foto de perfil de Mateus Pereira">
+                        <img src="imagem/perfil.webp" alt="Foto de perfil de Mateus Pereira">
 
                     </div>
 
@@ -98,19 +98,25 @@
                     <div class="especialidades-box">
                         <i class="bi bi-code-square"></i>
                         <h3 class="titulo">Website</h3>
-                        <p>Crio websites responsivos e otimizados que unem design atraente e excelente usabilidade. Desenvolvo interfaces modernas com HTML, CSS e JavaScript, faço integração com APIs e back-end quando necessário e aplico práticas de performance e SEO para melhorar visibilidade e conversão.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium nulla tempore
+                            exercitationem magnam repudiandae, quam obcaecati deleniti facilis molestiae modi culpa
+                            voluptates optio ipsam soluta deserunt cum, non itaque quidem.</p>
 
                     </div>
                     <div class="especialidades-box">
                         <i class="bi bi-cart"></i>
                         <h3 class="titulo">Loja online</h3>
-                        <p>Desenvolvo lojas online completas com catálogo, carrinho e integração com gateways de pagamento. Foco na segurança, experiência do usuário e otimização do funil de compra para aumentar taxas de conversão e facilitar a gestão do negócio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium nulla tempore
+                            exercitationem magnam repudiandae, quam obcaecati deleniti facilis molestiae modi culpa
+                            voluptates optio ipsam soluta deserunt cum, non itaque quidem.</p>
 
                     </div>
                     <div class="especialidades-box">
                         <i class="bi bi-file-earmark-spreadsheet"></i>
                         <h3 class="titulo">Excel</h3>
-                        <p>Crio soluções avançadas em Excel para automação, análise e geração de relatórios: tabelas dinâmicas, dashboards visuais, fórmulas complexas e macros/VBA para otimizar processos e apoiar a tomada de decisão com dados confiáveis.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium nulla tempore
+                            exercitationem magnam repudiandae, quam obcaecati deleniti facilis molestiae modi culpa
+                            voluptates optio ipsam soluta deserunt cum, non itaque quidem.</p>
 
                     </div>
 
@@ -124,7 +130,7 @@
                 <h2 class="titulo"> MUITO PRAZER, <span>SOU MATEUS PEREIRA DA ROSA.</span></h2>
                 <div class="flex">
                     <div class="img-sobre">
-                        <img src="imagem/Copia1.2.jpg" alt="Mateus Pereira sorrindo">
+                        <img src="imagem/perfil.webp" alt="Mateus Pereira sorrindo">
                     </div>
                     <div class="txt-sobre">
                         <p>Olá, meu nome é Mateus, sou um desenvolvedor web apaixonado por criar experiências digitais
@@ -159,18 +165,18 @@
                     <a href="https://pereiramateus23.github.io/fora-do-contexto/" target="_blank"
                         aria-label="Abrir projeto Fora do Contexto em nova aba">
                         <div class="img-port"
-                            style="background-image: url(imagem/Captura\ de\ tela\ 2025-06-09\ 160010.png);">
+                            style="background-image: url(imagem/projeto-1.webp);">
                             <div class="overlay">Projeto 1</div>
                         </div>
                     </a>
 
                     <div class="img-port"
-                        style="background-image: url(imagem/Captura\ de\ tela\ 2025-03-16\ 185700.png);">
+                        style="background-image: url(imagem/projeto-2.webp);">
                         <div class="overlay">Projeto 2</div>
                     </div>
                     <a href="https://prjwa-lasalle-firebase.web.app" target="_blank"
                         aria-label="Abrir projeto Sistema de Hotel em nova aba">
-                        <div class="img-port" style="background-image: url(imagem/SistHotel.png);">
+                        <div class="img-port" style="background-image: url(imagem/projeto-3.webp);">
                             <div class="overlay">Projeto 3</div>
                         </div>
                     </a>
@@ -193,19 +199,35 @@
                 <script>
                     document.getElementById("formContato").addEventListener("submit", async (e) => {
                         e.preventDefault();
-                            // Coleta os dados do formulário
-                        const dados = Object.fromEntries(new FormData(e.target)); 
-                        const resposta = await fetch("https://portifolio-backend-atpa.onrender.com/api/contato", {
-                            method: "POST",
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify(dados),
-                        });
+                        // Coleta os dados do formulário
+                        const dados = Object.fromEntries(new FormData(e.target));
+                        const btnEnviar = e.target.querySelector("input[type=submit]");
+                        const textoOriginal = btnEnviar.value;
+                        btnEnviar.value = "Enviando...";
+                        btnEnviar.disabled = true;
 
-                        if (resposta.ok) {
-                            alert("Mensagem enviada com sucesso!");
-                            e.target.reset();
-                        } else {
-                            alert("Erro ao enviar mensagem.");
+                        try {
+                            const resposta = await fetch("https://portifolio-backend-atpa.onrender.com/api/contato", {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify(dados),
+                            });
+
+                            if (resposta.ok) {
+                                alert("Mensagem enviada com sucesso!");
+                                e.target.reset();
+                            } else {
+                                // Mostra o motivo devolvido pelo servidor em vez de uma mensagem genérica
+                                const textoErro = await resposta.text();
+                                alert(`Erro ao enviar mensagem (${resposta.status}): ${textoErro}`);
+                            }
+                        } catch (erroDeRede) {
+                            // Acontece quando o servidor está fora do ar ou inacessível (sem resposta nenhuma)
+                            alert("Não foi possível conectar ao servidor. Tente novamente em instantes.");
+                            console.error("Erro de rede ao enviar contato:", erroDeRede);
+                        } finally {
+                            btnEnviar.value = textoOriginal;
+                            btnEnviar.disabled = false;
                         }
                     });
                 </script>

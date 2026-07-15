@@ -1,4 +1,6 @@
-/* Tokens — sistema de design */
+/* ============================================
+   TOKENS — sistema de design
+   ============================================ */
 :root {
    /* cor */
    --bg: #0a0b0a;
@@ -11,8 +13,7 @@
    --accent-soft: #35e05c1f;
    --accent-glow: #35e05c55;
    --accent-2: #7c8cff;
-
-   /* espaçamento base 8px) */
+   /* espaçamento (escala base 8px) */
    --s-1: 8px;
    --s-2: 16px;
    --s-3: 24px;
@@ -20,7 +21,6 @@
    --s-5: 48px;
    --s-6: 64px;
    --s-7: 96px;
-
    /* tipografia */
    --font-display: "Space Grotesk", "Poppins", sans-serif;
    --font-body: "Poppins", sans-serif;
@@ -43,7 +43,8 @@ html {
 
 body {
    background-color: var(--bg);
-   background-image: radial-gradient(circle at 15% 10%, #35e05c14 0%, transparent 40%),
+   background-image:
+      radial-gradient(circle at 15% 10%, #35e05c14 0%, transparent 40%),
       radial-gradient(circle at 85% 60%, #7c8cff10 0%, transparent 45%),
       radial-gradient(#ffffff09 1px, transparent 1px);
    background-size: auto, auto, 26px 26px;
@@ -82,7 +83,9 @@ textarea:focus-visible {
    border-radius: 6px;
 }
 
-/* TIPOGRAFIA */
+/* ============================================
+   TIPOGRAFIA
+   ============================================ */
 h1, h2, h3 {
    font-family: var(--font-display);
    letter-spacing: -0.01em;
@@ -121,7 +124,9 @@ p {
    margin: var(--s-2) 0;
 }
 
-/* BOTÕES */
+/* ============================================
+   BOTÕES
+   ============================================ */
 .btn-contato button {
    padding: 13px 32px;
    font-size: 16px;
@@ -210,7 +215,9 @@ ul {
    transition: .2s;
 }
 
-/* MENU MOBILE */
+/* ============================================
+   MENU MOBILE
+   ============================================ */
 .btn-abrir-menu-desktop {
    display: none;
 }
@@ -341,7 +348,9 @@ ul {
    }
 }
 
-/*HERO / TOPO DO SITE */
+/* ============================================
+   HERO / TOPO DO SITE
+   ============================================ */
 section.topo-do-site {
    padding: var(--s-7) 4% var(--s-6);
 }
@@ -453,7 +462,9 @@ section.especialidades .flex {
    font-size: 15.5px;
 }
 
-/* area da seção SOBRE*/
+/* ============================================
+   SOBRE
+   ============================================ */
 section.sobre {
    padding: var(--s-6) 4%;
 }
@@ -527,7 +538,9 @@ section.sobre .flex {
    box-shadow: 0 10px 20px -8px var(--accent-glow);
 }
 
-/* area da seção de projetos */
+/* ============================================
+   PROJETOS
+   ============================================ */
 section.projeto {
    padding: var(--s-7) 4%;
    border-top: 1px solid var(--line-soft);
@@ -597,7 +610,9 @@ a .overlay::after {
    background: linear-gradient(0deg, #050605cc 0%, transparent 100%);
 }
 
-/* area do formulário de contato */
+/* ============================================
+   CONTATO
+   ============================================ */
 section.contato {
    padding: var(--s-7) 4%;
 }
@@ -664,7 +679,9 @@ form .btn-enviar input {
    transition: transform .2s ease, box-shadow .2s ease;
 }
 
-/* rodape para parte de contato */
+/* ============================================
+   RODAPÉ
+   ============================================ */
 footer {
    padding: var(--s-4) 4%;
    border-top: 1px solid var(--line-soft);
@@ -688,8 +705,9 @@ footer .line-footer p a {
    color: var(--text);
 }
 
-
-   /* reorganiza a ordem dos elementos em telas menores, para que o conteúdo mais importante apareça primeiro */
+/* ============================================
+   RESPONSIVO
+   ============================================ */
 @media screen and (max-width: 1020px) {
    .flex {
       flex-direction: column-reverse;

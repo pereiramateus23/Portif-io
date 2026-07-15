@@ -1,0 +1,9 @@
+# Segredos — nunca devem ir para o repositório
+.env
+
+# Dependências — são reinstaladas com "npm install", não precisam ser versionadas
+node_modules/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db

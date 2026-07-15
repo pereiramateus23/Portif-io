@@ -9,7 +9,10 @@ router.post("/", async (req, res) => {
         await novaMensagem.save();
         res.status(201).send("Mensagem enviada com sucesso!");
     } catch (error) {
-        res.status(500).send("Erro ao enviar a mensagem.");
+        // Antes o erro real era descartado — agora ele aparece no log do servidor (Render > Logs),
+        // o que permite saber EXATAMENTE por que a mensagem não foi salva.
+        console.error("❌ Erro ao salvar mensagem de contato:", error);
+        res.status(500).send("Erro ao enviar a mensagem. Tente novamente em instantes.");
     }
 });
 
