@@ -14,6 +14,14 @@ const PORT = process.env.PORT || 3000;
 // o servidor avisa claramente em vez de tentar conectar com "undefined"
 if (!process.env.MONGODB_URI) {
   console.error("❌ Variável MONGODB_URI não encontrada. Verifique seu arquivo .env (ou as variáveis de ambiente no Render).");
+
+  // Diagnóstico extra: lista só os NOMES das variáveis de ambiente que o processo
+  // está enxergando (nunca os valores). Isso ajuda a descobrir se a variável existe
+  // com um nome ligeiramente diferente (espaço, letra maiúscula/minúscula trocada, etc.)
+  const nomesDisponiveis = Object.keys(process.env).sort();
+  console.error("🔎 Nomes de variáveis de ambiente disponíveis para este processo:", nomesDisponiveis);
+  console.error("🔎 Total de variáveis encontradas:", nomesDisponiveis.length);
+
   process.exit(1);
 }
 

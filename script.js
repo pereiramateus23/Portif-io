@@ -11,13 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
     overlay.classList.add("mostrar");
     document.body.style.overflow = "hidden"; 
   }
-
+  // Função para fechar o menu
   function fecharMenu() {
     menuMobile.classList.remove("abrir-menu");
     overlay.classList.remove("mostrar");
     document.body.style.overflow = ""; 
   }
-
+  // Adiciona os event listeners aos botões e ao overlay
   btnAbrir?.addEventListener("click", abrirMenu);
   btnFechar?.addEventListener("click", fecharMenu);
   overlay?.addEventListener("click", fecharMenu);
