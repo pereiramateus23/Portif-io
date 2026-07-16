@@ -8,5 +8,5 @@ const MensagemSchema = new mongoose.Schema({
   mensagem: String,
   data: { type: Date, default: Date.now }
 });
-
+// Exportando o modelo para ser usado em outras partes do aplicativo
 module.exports = mongoose.model("Mensagem", MensagemSchema);
